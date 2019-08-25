@@ -1,0 +1,23 @@
+<div *ngIf="totalServices > 0">
+  <!--Servicios -->
+  <div class="masonry" *ngIf="listServices ">
+    <ng-container *ngFor="let service of listServices | paginate: { itemsPerPage: 9, currentPage: page }">
+        <div class="item">
+          <app-servicio [service]="service" (updateView) = "updateView($event)" ></app-servicio>
+        </div>
+    </ng-container>
+  </div>
+  <!-- Paginacion -->
+  <div class="text-center pt-2" *ngIf="(page > 1)">
+    <pagination-controls
+        [previousLabel]="configPg.previousLabel"
+        [nextLabel]="configPg.nextLabel"
+        (pageChange)="page = $event" >
+    </pagination-controls>
+  </div>
+</div>
+<div *ngIf="totalServices === 0">
+  <div class="text-center py-5">
+     <h4>No hay servicios registrados...</h4>
+  </div>
+</div>

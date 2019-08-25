@@ -1,0 +1,10 @@
+/*  */
+.nav-link:hover, .card-link:hover {
+    color: #fff !important;
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: .25rem;
+}
+.card-link:hover {
+    padding: 0.5rem;
+}

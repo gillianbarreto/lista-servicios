@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <!-- Filtro -->
+    <div class="row">
+        <ul class="nav py-2">
+            <li class="nav-item">
+                <a class="nav-link active" (click)="showAll()">Todos</a>
+            </li>
+            <ng-container *ngFor="let category of listCategories"> 
+                <li class="nav-item">
+                    <a class="nav-link" (click)="filterList(category)">{{ category.name }}</a>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
+    <div class ="row">
+        <!-- Listado -->
+        <div class="col-md-8">
+            <h1>{{ title }}</h1>
+            <app-list-servicios [listServices]="listServices"></app-list-servicios>
+        </div>
+        <!-- Formulario -->
+        <div class="col-md-4">
+            <app-form></app-form>
+        </div>
+    </div>
+</div>
+
+

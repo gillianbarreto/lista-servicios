@@ -1,0 +1,25 @@
+<form #editForm="ngForm" id="editForm" (ngSubmit)="updateService(editForm)" *ngIf="service.id > 0" novalidate>
+  <div class="form-group">
+      <label for="name">Nombre *</label>
+      <input type="text" class="form-control" required
+          id="name" name="name" [ngModel]="service.name" #name="ngModel">
+      <span class="text-danger small" *ngIf="!name.valid && name.touched">
+          Debe indicar un nombre para el Servicio
+      </span>
+  </div>
+  <div class="form-group">
+      <label for="description">Descripción</label>
+      <input type="text" class="form-control" required id="description" name="description" 
+             [ngModel]="service.description" #description="ngModel">
+      <span class="text-danger small" *ngIf="!description.valid && description.touched">
+          Debe indicar la descripción del Servicio
+      </span>
+  </div>
+  <button type="reset" class="btn btn-outline-danger">Cancelar</button>
+  <button type="submit" class="btn btn-success" 
+          [ngClass]="{ 'disabled': !name.valid || !description.valid }"
+          [disabled]="!name.valid || !description.valid">
+          Guardar
+  </button>
+
+</form>
